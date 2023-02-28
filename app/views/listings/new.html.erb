@@ -5,7 +5,7 @@
       <%= simple_form_for @listing do |f| %>
         <%= f.input :title, placeholder: 'UX Designer' %>
         <%= f.input :description, placeholder: '10 years experience in Marvel' %>
-        <%= f.input :photo_url, as: :file, label: "Image of your profile" %>
+        <%= f.input :category_ids, collection: Listing::TITLE %>
         <%= f.submit class: 'btn btn-flat' %>
       <% end %>
       <a href="/lists">Back</a>
