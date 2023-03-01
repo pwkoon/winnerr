@@ -1,9 +1,9 @@
 <h1>This is categories/show.html.erb</h1>
 
-<% if @category.listings.each do |listing| %>
+<% @category.listings.each do |listing| %>
+
   <div>
     <h2><%= listing.title %></h2>
     <p><%= listing.description %></p>
-    <p><%= listing.photo_url %></p>
   </div>
 <% end %>

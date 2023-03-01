@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :categories, only: [:index, :show] do
     resources :listings, only: [:index]
+    # resources :listing_categories, only: [:new, :create]
   end
   resources :listings, except: [:index] do
-    resources :prices, only: [:new, :create, :edit, :update]
+    resources :prices, only: [:new, :create, :edit, :update] #destroy
   end
   resources :projects, only: [:index, :show]
 end
