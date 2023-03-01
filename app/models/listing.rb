@@ -6,6 +6,5 @@ class Listing < ApplicationRecord
   has_many :projects, dependent: :destroy
   validates :title, :description, presence: true
   has_one_attached :photo
-  # TITLE = %w[Web-Design Graphic&Design Writing&Translation Music&Audio Video&Animation Programming&Tech]
-  # validates :category_id, inclusion: { in: TITLE }
+  accepts_nested_attributes_for :categories
 end

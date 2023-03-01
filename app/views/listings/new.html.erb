@@ -5,7 +5,9 @@
       <%= simple_form_for @listing do |f| %>
         <%= f.input :title, placeholder: 'UX Designer' %>
         <%= f.input :description, placeholder: '10 years experience in Marvel' %>
-        <%# <%= f.input :category_ids, collection: Listing::TITLE %>
+        <%= f.fields_for :categories do |category| %>
+          <%= f.collection_select(:category_ids, Category.all, :id, :name, {}, {multiple: true} ) %>
+        <% end %>
         <%= f.input :photo, as: :file %>
         <%= f.submit class: 'btn btn-flat' %>
       <% end %>
