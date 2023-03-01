@@ -10,6 +10,9 @@
             <div class="col-md-6 mb-3 mb-md-0">
               <div id="basic" class="form-outline">
                 <input type="text" id="form1" class="form-control form-control-lg" />
+                <% @categories.first(5).each do |category| %>
+                <a type="button" class="btn btn-success fw-bold" href= <%= "/categories/#{category.id}" %> data-mdb-ripple-color="dark"><%= category.name %></a>
+                <% end %>
                 <label class="form-label text-white opacity-75" for="form1">I'm looking for web designer..</label>
               </div>
             </div>
