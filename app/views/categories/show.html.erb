@@ -1,0 +1,9 @@
+<h1>This is categories/show.html.erb</h1>
+
+<% @category.listings.each do |listing| %>
+
+  <div>
+    <h2><%= listing.title %></h2>
+    <p><%= listing.description %></p>
+  </div>
+<% end %>
