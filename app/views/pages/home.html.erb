@@ -1,38 +1,37 @@
-<section class="intro">
-  <div class="bg-image vh-100" style="background-color: #EFD3E4;
-          background-image: url(https://images.unsplash.com/photo-1644035655432-754ba37f06e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80);
+<div class="banner">
+  <div class="bg-image vh-100 d-flex align-items-center opacity-75"
+       style="background-color: #EFD3E4;
+              background-image: url(https://images.pexels.com/photos/13687617/pexels-photo-13687617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+              background-position: center;
+              background-size: cover;
+              background-attachment: fixed;
         ">
-    <div class="d-flex align-items-center h-100">
-      <div class="container">
-        <p class="display-5 font-weight-bold mb-5 text-white">Find the perfect <strong>freelance</strong> services for your business</p>
-        <div class="card-body">
-          <div class="row justify-content-center">
-            <div class="col-md-6 mb-3 mb-md-0">
-              <div id="basic" class="form-outline">
-                <input type="text" id="form1" class="form-control form-control-lg" />
-              </div>
-              <div class="flex justify-content-center">
-                <% @categories.first(5).each do |category| %>
-                <a type="button" class="btn btn-success fw-bold" href= <%= "/categories/#{category.id}" %> data-mdb-ripple-color="dark"><%= category.name %></a>
-                <% end %>
-                <label class="form-label text-white opacity-75" for="form1">I'm looking for web designer..</label>
-              </div>
-            </div>
-              <%# <div class="col-md-4 mb-3 mb-md-0">
-                <div id="location" class="form-outline">
-                  <input type="text" id="form2" class="form-control form-control-lg" />
-                  <label class="form-label" for="form2">Location</label>
-                </div>
-              </div> %>
-            <div class="col-md-2">
-              <input class="btn btn-secondary btn-block btn-lg" type="submit" value="Search" />
-              </div>
-            </div>
-          </div>
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-12 mx-auto text-center">
+          <% @categories.first(6).each do |category| %>
+            <a type="button" class="btn btn-outline-secondary fw-bold text-white" href= <%= "/categories/#{category.id}" %> data-mdb-ripple-color="success"><%= category.name.first(7) %></a>
+          <% end %>
         </div>
+        <p class="col-lg-12 fs-4 text-white text-center">
+        Find the perfect <span class="text-success fw-bolder">freelance</span> services for your business
+        </p>
+        <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+          <div class="col-lg-8 search-form-control form-group mx-auto">
+            <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+            <button name="button" type="submit" class="btn btn-flat">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+        <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</section>
+</div>
+
+
+
 
 <div class="container">
   <br>
