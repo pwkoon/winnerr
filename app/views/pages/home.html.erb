@@ -1,5 +1,6 @@
+<%= render "shared/navbar" unless user_signed_in? %>
 <div class="banner">
-  <div class="bg-image vh-100 d-flex align-items-center opacity-75"
+  <div class="bg-image vh-100 mx-0 d-flex align-items-center opacity-75"
        style="background-color: #EFD3E4;
               background-image: url(https://images.pexels.com/photos/13687617/pexels-photo-13687617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
               background-position: center;
@@ -30,21 +31,43 @@
   </div>
 </div>
 
-
-
-
-<div class="container">
-  <br>
-  <div class="d-flex justify-content-between align-items-center">
-  <h2 class="fw-bold" style="font-family: Anton">Winnerr's categories</h2>
-  <a class="btn btn-gradient" href="/listings/new">New Listing</a>
-  </div>
-  <hr>
-  <div class="cards">
-    <% @categories.each do |category| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/436413/pexels-photo-436413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)">
-        <a class="text-white text-decoration-none" href= <%= category_path(category) %>><%= category.name %></a>
+<%# introduce section %>
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto text-center">
+        <h6 class="text-primary">Market Place</h6>
+        <h1>Our roles</h1>
+        <p>Are you asking for a raise? Do your research and know your market value.
+        Having an informed sense of your worth, as dictated by the broader marketplace,
+        will give you greater confidence in requesting increased compensation.
+        It's tough to dispute someone who can back up her assertions with facts and a smart,
+        articulate argument</p>
       </div>
-    <% end %>
+      <div class="row g-3">
+            <% @categories.each do |category| %>
+        <div class="col-lg-4">
+          <div class="category card-effect">
+            <div class="iconbox">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/436413/pexels-photo-436413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)">
+             <a class="text-white text-decoration-none" href= <%= category_path(category) %>><%= category.name %></a>
+             </div>
+            <p>You change your business plan to anticipate and adapt to changes in the marketplace.</p>
+          </div>
+        </div>
+            <% end %>
+      </div>
+    </div>
   </div>
-</div>
+</section>
+
+
+<button
+        type="button"
+        class="btn btn-danger btn-floating btn-lg"
+        id="btn-back-to-top"
+        >
+  <i class="fas fa-arrow-up"></i>
+</button>
