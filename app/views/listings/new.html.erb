@@ -4,7 +4,7 @@
   <div class="col-12 col-md-6 offset-lg-3">
     <div class="bg-white rounded p-4 shadow">
       <h3>Create a new listing</h3>
-      <%= simple_form_for [@listing, @price] do |f| %>
+      <%= simple_form_for [@listing] do |f| %>
         <%= f.input :title, placeholder: 'UX Designer' %>
         <%= f.input :description, placeholder: '10 years experience in Marvel' %>
         <%= f.fields_for :categories do |category| %>
@@ -13,7 +13,7 @@
         <%= f.input :photo, as: :file %>
         <%= f.submit class: 'btn btn-flat' %>
       <% end %>
-      <a href="/lists">Back</a>
+      <a href="/">Back</a>
     </div>
   </div>
 </div>
