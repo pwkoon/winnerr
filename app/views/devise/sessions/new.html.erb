@@ -1,21 +1,33 @@
-<div class="container">
-<h2>Log in</h2>
+<div class="container-fluid">
+  <div class="row vh-100 flex justify-content-between">
+    <section class="col-4">
+      <div class="vh-100 mx-auto p-5 overflow-hidden text-white" style="background-color: #7B9E89;">
+        <a href="/" class="text-decoration-none text-bold text-white fs-4">WINNERR</a>
+        <p class="fw-bold fs-5">Master the topic, the message, and the delivery!</p>
+      </div>
+    </section>
+    <section class="col-8 h-100">
+      <div class="flex mx-auto">
+      <br>
+      <p class="text-end display-8">Not a member?<%= render "devise/shared/links" %></p>
+      <hr>
+      <h2>Log in</h2>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+          data: {turbo: false}) do |f| %>
+            <%= f.input :email,
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
+            <%= f.input :password,
+                        required: false,
+                        input_html: { autocomplete: "current-password" } %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
-  data: {turbo: false}) do |f| %>
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+          <div class="form-actions btn btn-warning">
+            <%= f.button :submit, "Log in" %>
+          </div>
+        <% end %>
+      </div>
+    </section>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
 </div>

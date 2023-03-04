@@ -1,49 +1,73 @@
-<section class="intro">
-  <div class="bg-image vh-100" style="background-color: #EFD3E4;
-          background-image: url(https://images.unsplash.com/photo-1644035655432-754ba37f06e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80);
+<%= render "shared/navbar" unless user_signed_in? %>
+<div class="banner">
+  <div class="bg-image vh-100 mx-0 d-flex align-items-center opacity-75"
+       style="background-color: #EFD3E4;
+              background-image: url(https://images.pexels.com/photos/13687617/pexels-photo-13687617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+              background-position: center;
+              background-size: cover;
+              background-attachment: fixed;
         ">
-    <div class="d-flex align-items-center h-100">
-      <div class="container">
-        <p class="display-5 font-weight-bold mb-5 text-white">Find the perfect <strong>freelance</strong> services for your business</p>
-        <div class="card-body">
-          <div class="row justify-content-center">
-            <div class="col-md-6 mb-3 mb-md-0">
-              <div id="basic" class="form-outline">
-                <input type="text" id="form1" class="form-control form-control-lg" />
-                <% @categories.first(5).each do |category| %>
-                <a type="button" class="btn btn-success fw-bold" href= <%= "/categories/#{category.id}" %> data-mdb-ripple-color="dark"><%= category.name %></a>
-                <% end %>
-                <label class="form-label text-white opacity-75" for="form1">I'm looking for web designer..</label>
-              </div>
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-12 mx-auto text-center">
+          <% @categories.first(6).each do |category| %>
+            <a type="button" class="btn btn-outline-secondary fw-bold text-white" href= <%= "/categories/#{category.id}" %> data-mdb-ripple-color="success"><%= category.name.first(7) %></a>
+          <% end %>
+        </div>
+        <p class="col-lg-12 fs-4 text-white text-center">
+        Find the perfect <span class="text-success fw-bolder">freelance</span> services for your business
+        </p>
+        <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+          <div class="col-lg-8 search-form-control form-group mx-auto">
+            <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+            <button name="button" type="submit" class="btn btn-flat">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# introduce section %>
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto text-center">
+        <h6 class="text-primary">Market Place</h6>
+        <h1>Our roles</h1>
+        <p>Are you asking for a raise? Do your research and know your market value.
+        Having an informed sense of your worth, as dictated by the broader marketplace,
+        will give you greater confidence in requesting increased compensation.
+        It's tough to dispute someone who can back up her assertions with facts and a smart,
+        articulate argument</p>
+      </div>
+      <div class="row g-3">
+            <% @categories.each do |category| %>
+        <div class="col-lg-4">
+          <div class="category card-effect">
+            <div class="iconbox">
+              <i class="fa-solid fa-layer-group"></i>
             </div>
-              <%# <div class="col-md-4 mb-3 mb-md-0">
-                <div id="location" class="form-outline">
-                  <input type="text" id="form2" class="form-control form-control-lg" />
-                  <label class="form-label" for="form2">Location</label>
-                </div>
-              </div> %>
-            <div class="col-md-2">
-              <input class="btn btn-secondary btn-block btn-lg" type="submit" value="Search" />
-              </div>
-            </div>
+             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/436413/pexels-photo-436413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)">
+             <a class="text-white text-decoration-none" href= <%= category_path(category) %>><%= category.name %></a>
+             </div>
+            <p>You change your business plan to anticipate and adapt to changes in the marketplace.</p>
           </div>
         </div>
+            <% end %>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="container">
-  <br>
-  <div class="d-flex justify-content-between align-items-center">
-  <h2 class="fw-bold" style="font-family: Anton">Winnerr's categories</h2>
-  <a class="btn btn-gradient" href="/listings/new">New Listing</a>
-  </div>
-  <hr>
-  <div class="cards">
-    <% @categories.each do |category| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/436413/pexels-photo-436413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)">
-        <a class="text-white text-decoration-none" href= <%= category_path(category) %>><%= category.name %></a>
-      </div>
-    <% end %>
-  </div>
-</div>
+
+<button
+        type="button"
+        class="btn btn-danger btn-floating btn-lg"
+        id="btn-back-to-top"
+        >
+  <i class="fas fa-arrow-up"></i>
+</button>
