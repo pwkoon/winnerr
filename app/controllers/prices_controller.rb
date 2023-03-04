@@ -9,7 +9,7 @@ class PricesController < ApplicationController
   def create
     @price = Price.new(params_price)
     @price.listing = @listing
-    if @price.save
+    if @price.save!
         redirect_to listing_path(@listing)
     else
         render :new, status: :unprocessable_entity

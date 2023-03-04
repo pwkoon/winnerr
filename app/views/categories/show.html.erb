@@ -8,23 +8,24 @@
 
     <div class="row row-cols-1 row-cols-md-3 g-4 mx-auto">
       <% @category.listings.each do |listing| %>
-      <%  listing.id == @price.listing_id %>
       <div class="col">
-        <div class="card-group">
-          <div class="card">
-            <%= cl_image_tag listing.photo.key, height: 300, width: 406, crop: :fill %>
-            <div class="card-body">
-            <h5 class="card-title"><%= listing.title %></h5>
-            <p class="card-text">
-            <%= listing.description %>
-            </p>
+        <a href= <%= "/listings/#{listing.id}" %>>
+          <div class="card-group">
+            <div class="card">
+              <%= cl_image_tag listing.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+              <div class="card-body">
+              <h5 class="card-title"><%= listing.title %></h5>
+              <p class="card-text"><%= listing.description %></p>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <% listing.prices.each do |price| %>
+              <small>From $<%= price.amount %></small>
+              <% end %>
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
           </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
           </div>
-          <p class="card-product-pricing">From $<%= @price.amount %></p>
-        </div>
-        </div>
+        </a>
       </div>
       <% end %>
     </div>
@@ -32,6 +33,7 @@
 </div>
 
 <hr>
+
 <div class="container">
   <h3 class="mx-auto text-center">Other recommendations</h3>
   <div class="row row-cols-1 row-cols-md-3 g-4">
