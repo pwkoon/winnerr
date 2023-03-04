@@ -17,6 +17,9 @@
             <h5 class="card-title"><%= listing.title %></h5>
             <p class="card-text">
             <%= listing.description %>
+            <% listing.prices.each do |price| %>
+            <p>From $<%= price.amount %></p>
+            <% end %>
             </p>
           </div>
           <div class="card-footer">
