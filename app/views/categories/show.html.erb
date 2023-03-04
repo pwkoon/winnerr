@@ -8,6 +8,7 @@
 
     <div class="row row-cols-1 row-cols-md-3 g-4 mx-auto">
       <% @category.listings.each do |listing| %>
+      <%  listing.id == @price.listing_id %>
       <div class="col">
         <div class="card-group">
           <div class="card">
@@ -21,6 +22,7 @@
           <div class="card-footer">
             <small class="text-muted">Last updated 3 mins ago</small>
           </div>
+          <p class="card-product-pricing">From $<%= @price.amount %></p>
         </div>
         </div>
       </div>
@@ -47,5 +49,3 @@
     </div>
   </div>
 </div>
-
-
