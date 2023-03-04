@@ -7,6 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Wiping all previous instances of categories and listings
+require "open-uri"
+
 puts " Cleaning database..."
 Category.destroy_all
 Listing.destroy_all
@@ -289,6 +291,8 @@ writing = Category.create!(
 
   puts "Done - '#{writing.name}' category, associated with #{writing.listings.count} listings, successfully created!"
 
+
+# TODO: Seed images to listing
 
 # TODO: Seed prices
 30.times do |list|
