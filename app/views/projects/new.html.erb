@@ -1,0 +1,15 @@
+<h1>you in price/new form</h1>
+<div class="container">
+  <div class="row mx-auto">
+
+  </div>
+</div>
+
+
+
+<%= simple_form_for [@project] do |f| %>
+  <%= f.input :tier, placeholder: 'Basic' %>
+  <%= f.input :amount, placeholder: '$20' %>
+  <%= f.input :description, placeholder: 'One Revision + 2 working days' %>
+  <%= f.submit class: 'btn btn-flat' %>
+<% end %>
