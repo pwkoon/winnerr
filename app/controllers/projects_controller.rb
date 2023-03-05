@@ -1,12 +1,20 @@
 class ProjectsController < ApplicationController
   before_action :set_listing, only: [:new, :create]
 
+    def index
+      @projects = Project.all
+    end
+
+    def show
+      @project = Project.find(params[:id])
+    end
+
   def new
     @project = Project.new
   end
 
   def create
-    @project = Project.new(params_project)
+    @project = Project.new
     @project.listing = @listing
     @project.user = current_user
     if @project.save
@@ -16,21 +24,9 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def index
-    @projects = Project.all
-  end
-
-  def show
-    @project = Project.find(params[:id])
-  end
-
   private
 
   def set_listing
     @listing = Listing.find(params[:listing_id])
-  end
-
-  def params_project
-  params.require(:project).permit(:listing_id)
   end
 end

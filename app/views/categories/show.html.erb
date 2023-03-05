@@ -21,7 +21,7 @@
               <% listing.prices.each do |price| %>
               <small>From $<%= price.amount %></small>
               <% end %>
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <small class="text-muted"><%= link_to "Edit", edit_listing_path(listing)%></small>
             </div>
           </div>
           </div>
