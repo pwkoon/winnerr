@@ -7,4 +7,5 @@ class Listing < ApplicationRecord
   validates :title, :description, presence: true
   has_one_attached :photo
   accepts_nested_attributes_for :categories
+  has_many :reviews, dependent: :destroy
 end

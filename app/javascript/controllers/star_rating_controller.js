@@ -1,8 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="tom-select"
+// Connects to data-controller="star-rating"
 export default class extends Controller {
   connect() {
-    new TomSelect(this.element, {})
+    new StarRating(this.element)
   }
 }

@@ -21,6 +21,7 @@ class PricesController < ApplicationController
   end
 
   def update
+    @price.listing = @listing
     @price.update(params_price)
     if @price.update
       redirect_to listing_path(@listing)
