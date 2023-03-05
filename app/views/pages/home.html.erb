@@ -33,11 +33,11 @@
 </div>
 
 
-  <div class="container">
+  <div class="container-logos">
     <div class="row">
 
       <div class="trusted-font col-sm-4">
-        <h5>Trusted by:</h5>
+        <h5 class="text-center">Trusted by:</h5>
       </div>
 
       <div class="col-sm-2">
@@ -58,19 +58,56 @@
     </div>
   </div>
 
+
+<%# <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>This is a paragraph.</p>
+        </div>
+        <div class="col-md-6">
+          <h2>Photo Slideshow</h2>
+          <!-- insert your photo slideshow code here -->
+        </div>
+      </div>
+    </div> %>
+
+
+
 <%# introduce section %>
 <section class="section">
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto text-center">
-        <h6 class="text-primary">Market Place</h6>
-        <h1>Our roles</h1>
-        <p>Are you asking for a raise? Do your research and know your market value.
-        Having an informed sense of your worth, as dictated by the broader marketplace,
-        will give you greater confidence in requesting increased compensation.
-        It's tough to dispute someone who can back up her assertions with facts and a smart,
-        articulate argument</p>
+        <%# <h6 class="text-primary">Market Place</h6> %>
+        <h1>A whole world of freelance talent at your fingertips</h1><br><br>
+
+          <ul style="list-style: none;">
+            <li class="lists">
+            <b>&#9989; The best for every budget</b><br>
+            Find high-quality services at every price point.
+            No hourly rates, just project-based pricing.
+            </li><br>
+
+            <li class="lists">
+            <b>&#9989; Quality work done quickly</b><br>
+            Find the right freelancer to begin working on your project
+            within minutes.
+            </li><br>
+
+            <li class="lists">
+            <b>&#9989; Protected payments, every time</b><br>
+            Always know what you'll pay upfront. Your payment isn't released
+            until you approve the work.</li><br>
+
+            <li class="lists">
+            <b>&#9989; 24/7 support</b><br>
+            Questions? Our round-the-clock support team is available to
+            help anytime, anywhere.</li><br>
+          </ul>
+
+        <h3><b>Explore the Marketplace<b></h3><br>
       </div>
+
       <div class="row g-3">
             <% @categories.each do |category| %>
         <div class="col-lg-4">
@@ -89,6 +126,9 @@
     </div>
   </div>
 </section>
+
+
+
 
 
 

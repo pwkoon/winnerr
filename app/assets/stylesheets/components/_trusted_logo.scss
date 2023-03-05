@@ -3,10 +3,15 @@
   height: 60px;
 }
 
-.container .row .trusted-font h5 {
+.container-logos .row .trusted-font h5 {
   padding-top: 20px;
-  padding-left: 0px;
   font-size: 20px;
   font-weight: bolder;
   color: rgb(198, 196, 196);
+}
+
+.container-logos {
+  height: 70px;
+  border: 2px solid rgb(189, 187, 187);
+  background-color: #1f1c1a;
 }
