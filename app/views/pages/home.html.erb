@@ -1,58 +1,62 @@
 <%= render "shared/navbar" unless user_signed_in? %>
 <div class="banner">
-  <div class="bg-image vh-100 mx-0 d-flex align-items-center opacity-75"
+  <div class="bg-image vh-100 mx-0 d-flex align-items-center opacity-35"
        style="background-color: #EFD3E4;
-              background-image: url(https://images.pexels.com/photos/13687617/pexels-photo-13687617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-              background-position: center;
+              background-image: url(https://images.pexels.com/photos/1252807/pexels-photo-1252807.jpeg);
+              background-position: 250px 0;
               background-size: cover;
-              background-attachment: fixed;
+              /* background-attachment: fixed; */
         ">
+<%# https://images.pexels.com/photos/13687617/pexels-photo-13687617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 %>
+
     <div class="container">
-      <div class="row gy-3">
-        <div class="col-lg-12 mx-auto text-center">
-          <% @categories.first(6).each do |category| %>
-            <a type="button" class="btn btn-outline-secondary fw-bold text-white" href= <%= "/categories/#{category.id}" %> data-mdb-ripple-color="success"><%= category.name.first(7) %></a>
-          <% end %>
-        </div>
-        <p class="col-lg-12 fs-4 text-white text-start">
-        Find the perfect <span class="text-success fw-bolder">freelance</span> services for your business
-        </p>
+      <p class="col-lg-12 fs-4 text-white text-start">
+        Find the perfect <span class="text-success fw-bolder">freelance</span> services for your business</p>
         <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-          <div class="col-lg-6 search-form-control form-group align-items-left">
+          <div class="form-search col-lg-6 search-form-control form-group align-items-left">
             <input class="form-control string required" type="text" name="search[query]" placeholder="Try searching for &quot;designing web page&quot;" id="search_query" />
             <button name="button" type="submit" class="btn btn-success">
               <i class="fas fa-search"></i> Search
             </button>
           </div>
         <% end %>
-          <div class="container">
-            <h6 class="d-inline-block">Popular:</h6>
-            <a href="#" class="btn btn-info btn-sm rounded-pill" role="button"><b>Website Design</b></a>
-            <a href="#" class="btn btn-info btn-sm rounded-pill" role="button"><b>Apps Creation</b></a>
-            <a href="#" class="btn btn-info btn-sm rounded-pill" role="button"><b>Web Games</b></a>
-            <a href="#" class="btn btn-info btn-sm rounded-pill" role="button"><b>Pokemon Hunter</b></a>
-          </div>
-        </div>
+
+      <div class="container d-flex justify-content-between">
+        <h6 class="d-inline-block"; style="color: white">
+          <b>Popular:</b></h6>
+        <% @categories.first(5).each do |category| %>
+        <a type="button" class="btn btn-info btn-sm rounded-pill" href= <%= "/categories/#{category.id}" %> ><b><%= category.name %></b></a>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
-<body>
-<div class="card-white">
-  <h1>Bootstrap Tutorial</h1>
-  <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
-</div>
-</body>
 
-    <div class="card-white">
-      <h3>Follow me!</h3>
-        <ul class="list-inline">
-          <li><a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i></a></li>
-          <li><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
-          <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
-        </ul>
+  <div class="container">
+    <div class="row">
+
+      <div class="trusted-font col-sm-4">
+        <h5>Trusted by:</h5>
       </div>
+
+      <div class="col-sm-2">
+        <%= image_tag(asset_path('google.png'), class:"trusted-logo") %>
+      </div>
+
+      <div class="col-sm-2">
+        <%= image_tag(asset_path('netflix.png'), class:"trusted-logo") %>
+      </div>
+
+      <div class="col-sm-2">
+        <%= image_tag(asset_path('pandg.png'), class:"trusted-logo") %>
+      </div>
+
+      <div class="col-sm-2">
+        <%= image_tag(asset_path('paypal.png'), class:"trusted-logo") %>
+      </div>
+    </div>
+  </div>
 
 <%# introduce section %>
 <section class="section">
@@ -88,10 +92,11 @@
 
 
 
-<button
+
+<%# <button
         type="button"
         class="btn btn-danger btn-floating btn-lg"
         id="btn-back-to-top"
         >
   <i class="fas fa-arrow-up"></i>
-</button>
+</button> %>
