@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resources :listings, except: [:index] do
     resources :prices, only: [:new, :create, :edit, :update] #destroy
   end
-  resources :projects, only: [:index, :show]
+  resources :projects, only: [:new, :create, :index, :show]
 end
