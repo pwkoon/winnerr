@@ -1,4 +1,4 @@
-<%= render "shared/navbar" unless user_signed_in? %>
+
 <div class="banner">
   <div class="bg-image vh-100 mx-0 d-flex align-items-center opacity-35"
        style="background-color: #EFD3E4;
@@ -7,8 +7,6 @@
               background-size: cover;
               /* background-attachment: fixed; */
         ">
-<%# https://images.pexels.com/photos/13687617/pexels-photo-13687617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 %>
-
     <div class="container">
       <p class="col-lg-12 fs-4 text-white text-start">
         Find the perfect <span class="text-success fw-bolder">freelance</span> services for your business</p>
@@ -16,6 +14,7 @@
           <div class="form-search col-lg-6 search-form-control form-group align-items-left">
             <input class="form-control string required" type="text" name="search[query]" placeholder="Try searching for &quot;designing web page&quot;" id="search_query" />
             <button name="button" type="submit" class="btn btn-success">
+
               <i class="fas fa-search"></i> Search
             </button>
           </div>
@@ -33,104 +32,102 @@
 </div>
 
 
-  <div class="container-logos">
-    <div class="row">
+<div class="container-logos">
+  <div class="row">
 
-      <div class="trusted-font col-sm-4">
-        <h5 class="text-center">Trusted by:</h5>
-      </div>
+    <div class="trusted-font col-sm-4">
+      <h5 class="text-center">Trusted by:</h5>
+    </div>
 
-      <div class="col-sm-2">
-        <%= image_tag(asset_path('google.png'), class:"trusted-logo") %>
-      </div>
+    <div class="col-sm-2">
+      <%= image_tag(asset_path('google.png'), class:"trusted-logo") %>
+    </div>
 
-      <div class="col-sm-2">
-        <%= image_tag(asset_path('netflix.png'), class:"trusted-logo") %>
-      </div>
+    <div class="col-sm-2">
+      <%= image_tag(asset_path('netflix.png'), class:"trusted-logo") %>
+    </div>
 
-      <div class="col-sm-2">
-        <%= image_tag(asset_path('pandg.png'), class:"trusted-logo") %>
-      </div>
+    <div class="col-sm-2">
+      <%= image_tag(asset_path('pandg.png'), class:"trusted-logo") %>
+    </div>
 
-      <div class="col-sm-2">
-        <%= image_tag(asset_path('paypal.png'), class:"trusted-logo") %>
-      </div>
+    <div class="col-sm-2">
+      <%= image_tag(asset_path('paypal.png'), class:"trusted-logo") %>
     </div>
   </div>
+</div>
 
 <%# introduce section %>
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h3>A whole world of freelance talent at your fingertips</h3><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>A whole world of freelance talent at your fingertips</h3><br><br>
 
-          <ul style="list-style: none;">
-            <li class="lists">
-            <b>&#9989; The best for every budget</b><br>
-            Find high-quality services at every price point.
-            No hourly rates, just project-based pricing.
-            </li><br>
+        <ul style="list-style: none;">
+          <li class="lists">
+          <b>&#9989; The best for every budget</b><br>
+          Find high-quality services at every price point.
+          No hourly rates, just project-based pricing.
+          </li><br>
 
-            <li class="lists">
-            <b>&#9989; Quality work done quickly</b><br>
-            Find the right freelancer to begin working on your project
-            within minutes.
-            </li><br>
+          <li class="lists">
+          <b>&#9989; Quality work done quickly</b><br>
+          Find the right freelancer to begin working on your project
+          within minutes.
+          </li><br>
 
-            <li class="lists">
-            <b>&#9989; Protected payments, every time</b><br>
-            Always know what you'll pay upfront. Your payment isn't released
-            until you approve the work.</li><br>
+          <li class="lists">
+          <b>&#9989; Protected payments, every time</b><br>
+          Always know what you'll pay upfront. Your payment isn't released
+          until you approve the work.</li><br>
 
-            <li class="lists">
-            <b>&#9989; 24/7 support</b><br>
-            Questions? Our round-the-clock support team is available to
-            help anytime, anywhere.</li><br><br>
-          </ul>
-      </div>
+          <li class="lists">
+          <b>&#9989; 24/7 support</b><br>
+          Questions? Our round-the-clock support team is available to
+          help anytime, anywhere.</li><br><br>
+        </ul>
+    </div>
 
-      <div class="col-md-6">
-        <h3>&#128172; What our customers say</h3><br><br><br>
+    <div class="col-md-6">
+      <h3>&#128172; What our customers say</h3><br><br><br>
 
-        <div class="slideshow-container">
-          <!-- Full-width images with number and caption text -->
-          <div class="mySlides fade">
-            <div class="numbertext">1 / 4</div>
-            <%= image_tag(asset_path('img1.jpg'), style:"width:100%") %>
-          </div>
-
-          <div class="mySlides fade">
-            <div class="numbertext">2 / 4</div>
-            <%= image_tag(asset_path('img2.jpg'), style:"width:100%") %>
-          </div>
-
-          <div class="mySlides fade">
-            <div class="numbertext">3 / 4</div>
-            <%= image_tag(asset_path('img3.jpg'), style:"width:100%") %>
-          </div>
-
-           <div class="mySlides fade">
-            <div class="numbertext">4 / 4</div>
-            <%= image_tag(asset_path('img4.jpg'), style:"width:100%") %>
-          </div>
-
-          <!-- Next and previous buttons -->
-          <%# <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a> %>
+      <div class="slideshow-container">
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 4</div>
+          <%= image_tag(asset_path('img1.jpg'), style:"width:100%") %>
         </div>
 
-          <!-- The dots/circles -->
-          <%# <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-          </div> %>
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 4</div>
+          <%= image_tag(asset_path('img2.jpg'), style:"width:100%") %>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 4</div>
+          <%= image_tag(asset_path('img3.jpg'), style:"width:100%") %>
+        </div>
+
+          <div class="mySlides fade">
+          <div class="numbertext">4 / 4</div>
+          <%= image_tag(asset_path('img4.jpg'), style:"width:100%") %>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <%# <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a> %>
       </div>
+
+        <!-- The dots/circles -->
+        <%# <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div> %>
     </div>
   </div>
-</section>
+</div>
 
 <script>
 let slideIndex = 0;
@@ -149,30 +146,20 @@ function showSlides() {
 }
 </script>
 
-      <h3><b>Explore the Marketplace<b></h3><br>
+<h3><b>Explore the Marketplace<b></h3><br>
 
-      <div class="row g-3">
-            <% @categories.each do |category| %>
-        <div class="col-lg-4">
-          <div class="category card-effect">
-            <div class="iconbox">
-              <i class="fa-solid fa-layer-group"></i>
-            </div>
-             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/436413/pexels-photo-436413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)">
-             <a class="text-white text-decoration-none" href= <%= category_path(category) %>><%= category.name %></a>
-             </div>
-            <p>You change your business plan to anticipate and adapt to changes in the marketplace.</p>
-          </div>
+<div class="row g-3">
+  <% @categories.each do |category| %>
+    <div class="col-lg-4">
+      <div class="category card-effect">
+        <div class="iconbox">
+          <i class="fa-solid fa-layer-group"></i>
         </div>
-            <% end %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/436413/pexels-photo-436413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)">
+        <a class="text-white text-decoration-none" href= <%= category_path(category) %>><%= category.name %></a>
+        </div>
+        <p>You change your business plan to anticipate and adapt to changes in the marketplace.</p>
       </div>
     </div>
-  </div>
-</section>
-<%# <button
-        type="button"
-        class="btn btn-danger btn-floating btn-lg"
-        id="btn-back-to-top"
-        >
-  <i class="fas fa-arrow-up"></i>
-</button> %>
+  <% end %>
+</div>

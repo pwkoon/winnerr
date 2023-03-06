@@ -1,0 +1,38 @@
+<div style="background-color: #DEF4C6">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-6 mx-auto text-center">
+      <h1>Order successful!</h1>
+      <p>Confirmation email sent.</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-5 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-warning fw-bold text-decoration-underline">Order's details</h5>
+            <p class="card-text"><strong>Listing's title:</strong> <%= @project.listing.title%></p>
+            <% @project.listing.prices.each do |price| %>
+              <p class="card-text"><strong>Listing's price:</strong> $<%= price.amount %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-warning fw-bold text-decoration-underline">Seller's Information</h5>
+            <p class="card-text"><strong>Seller's email:</strong> <%= @project.user.email %></p>
+            <p class="card-text"><strong>Seller's message:</strong> Contact me anytime!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-6 mx-auto text-center">
+        <%= link_to "Back to listing", listing_path(@project.listing) %> | <%= link_to "Home", root_path %>
+      </div>
+    </div>
+  </div>
+</div>

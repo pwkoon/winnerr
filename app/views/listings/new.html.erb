@@ -1,17 +1,36 @@
-<h1>This is listings/new.html.erb</h1>
+<div style="background-color: #DEF4C6">
+<br>
+<div class="container-fluid">
   <div class="col-12 col-md-6 offset-lg-3">
-    <div class="bg-white rounded p-4 shadow">
-      <h3>Create a new listing</h3>
+    <div class="rounded p-4 shadow", style="background-color: #7B9E89">
+      <h3 class="text-white fw-bold text-center">Create a new listing</h3>
+      <h4 class="text-white fw-bold">Listing | Info</h4>
       <%= simple_form_for [@listing] do |f| %>
-        <%= f.input :title, placeholder: 'UX Designer' %>
+        <%= f.input :title, placeholder: 'UX Designer'%>
         <%= f.input :description, placeholder: '10 years experience in Marvel' %>
-        <%= f.fields_for :categories do |category| %>
-          <%= f.collection_select(:category_ids, Category.all, :id, :name, {}, {multiple: true} ) %>
-        <% end %>
+        <%= f.association :categories, collection: Category.all, include_hidden: false, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}} %>
         <%= f.input :photo, as: :file %>
-        <%= f.submit class: 'btn btn-flat' %>
+      <hr>
+      <hr>
+      <h4 class="text-white fw-bold">Listing | Pricing</h4>
+      <div class="mb-3">
+        <label for="tier" class="form-label">Tier</label>
+        <input type="text" class="form-control" name="tier" id="tier" placeholder="Basic">
+      </div>
+      <div class="mb-3">
+        <label for="amount" class="form-label">Amount</label>
+        <input type="float" class="form-control" name="amount" id="amount" placeholder="Your listing price...">
+      </div>
+        <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" name="description" id="description" placeholder="Description...">
+
+      </div>
+        <%= f.submit class: 'btn btn-flat btn-warning text-dark fw-bold' %>
       <% end %>
       <a href="/">Back</a>
     </div>
   </div>
+</div>
+<br>
 </div>
