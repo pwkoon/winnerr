@@ -58,28 +58,12 @@
     </div>
   </div>
 
-
-<%# <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <p>This is a paragraph.</p>
-        </div>
-        <div class="col-md-6">
-          <h2>Photo Slideshow</h2>
-          <!-- insert your photo slideshow code here -->
-        </div>
-      </div>
-    </div> %>
-
-
-
 <%# introduce section %>
 <section class="section">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 mx-auto text-center">
-        <%# <h6 class="text-primary">Market Place</h6> %>
-        <h1>A whole world of freelance talent at your fingertips</h1><br><br>
+      <div class="col-md-6">
+        <h3>A whole world of freelance talent at your fingertips</h3><br><br>
 
           <ul style="list-style: none;">
             <li class="lists">
@@ -102,11 +86,67 @@
             <li class="lists">
             <b>&#9989; 24/7 support</b><br>
             Questions? Our round-the-clock support team is available to
-            help anytime, anywhere.</li><br>
+            help anytime, anywhere.</li><br><br>
           </ul>
-
-        <h3><b>Explore the Marketplace<b></h3><br>
       </div>
+
+      <div class="col-md-6">
+        <h3>&#128172; What our customers say</h3><br><br>
+
+        <div class="slideshow-container">
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 4</div>
+            <%= image_tag(asset_path('img1.jpg'), style:"width:100%") %>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 4</div>
+            <%= image_tag(asset_path('img2.jpg'), style:"width:100%") %>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 4</div>
+            <%= image_tag(asset_path('img3.jpg'), style:"width:100%") %>
+          </div>
+
+           <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <%= image_tag(asset_path('img4.jpg'), style:"width:100%") %>
+          </div>
+
+          <!-- Next and previous buttons -->
+          <%# <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a> %>
+        </div>
+
+          <!-- The dots/circles -->
+          <%# <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+          </div> %>
+      </div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 5000);
+}
+</script>
+
+      <h3><b>Explore the Marketplace<b></h3><br>
 
       <div class="row g-3">
             <% @categories.each do |category| %>
@@ -126,13 +166,6 @@
     </div>
   </div>
 </section>
-
-
-
-
-
-
-
 <%# <button
         type="button"
         class="btn btn-danger btn-floating btn-lg"
