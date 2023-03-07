@@ -31,13 +31,12 @@ class ListingsController < ApplicationController
   end
 
   def edit
-    @price = Price.new(params_price)
+
   end
 
   def update
-    @listing = Listing.find(params[:listing_id])
-    @price.listing = @listing
-    if @listing.update(params_listing)
+    @price = @listing.prices.first
+    if @listing.update(params_listing) && @price.update(params_price)
       redirect_to listing_path(@listing)
     else
       render :edit, status: :unprocessable_entity

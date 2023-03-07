@@ -12,7 +12,11 @@
         <a href= <%= "/listings/#{listing.id}" %>>
           <div class="card-group">
             <div class="card">
+              <% if listing.photo.key.nil? %>
+              <img class="card-img-top" src="https://images.pexels.com/photos/209620/pexels-photo-209620.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" height="300" width="346" >
+              <% else %>
               <%= cl_image_tag listing.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+              <% end %>
               <div class="card-body">
               <h5 class="card-title"><%= listing.title %></h5>
               <p class="card-text"><%= listing.description %></p>
