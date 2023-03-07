@@ -48,14 +48,14 @@
     </div>
 
     <div class="col-sm-2">
-      <%= image_tag(asset_path('pandg.png'), class:"trusted-logo") %>
+      <%= image_tag(asset_path('https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg.8b7310b.png'), class:"trusted-logo") %>
     </div>
 
     <div class="col-sm-2">
       <%= image_tag(asset_path('paypal.png'), class:"trusted-logo") %>
     </div>
   </div>
-</div>
+</div><br><br>
 
 <%# introduce section %>
 <div class="container">
@@ -148,18 +148,20 @@ function showSlides() {
 
 <h3><b>Explore the Marketplace<b></h3><br>
 
-<div class="row g-3">
-  <% @categories.each do |category| %>
-    <div class="col-lg-4">
-      <div class="category card-effect">
-        <div class="iconbox">
-          <i class="fa-solid fa-layer-group"></i>
+<div class="container">
+  <div class="row g-3">
+    <% @categories.each do |category| %>
+      <div class="col-lg-4">
+        <div class="category card-effect">
+          <div class="iconbox">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/436413/pexels-photo-436413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)">
+          <a class="text-white text-decoration-none" href= <%= category_path(category) %>><%= category.name %></a>
+          </div>
+          <p>You change your business plan to anticipate and adapt to changes in the marketplace.</p>
         </div>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/436413/pexels-photo-436413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)">
-        <a class="text-white text-decoration-none" href= <%= category_path(category) %>><%= category.name %></a>
-        </div>
-        <p>You change your business plan to anticipate and adapt to changes in the marketplace.</p>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+ </div>
