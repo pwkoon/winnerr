@@ -1,4 +1,4 @@
-<%= render "shared/navbar" unless user_signed_in? %>
+
 <div class="banner">
   <div class="bg-image vh-100 mx-0 d-flex align-items-center opacity-75"
        style="background-color: #EFD3E4;
@@ -18,7 +18,7 @@
         Find the perfect <span class="text-success fw-bolder">freelance</span> services for your business
         </p>
         <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-          <div class="col-lg-8 search-form-control form-group mx-auto">
+          <div class="col-lg-6 search-form-control form-group mx-auto">
             <input class="form-control string required" type="text" name="search[query]" id="search_query" />
             <button name="button" type="submit" class="btn btn-flat">
               <i class="fas fa-search"></i> Search
@@ -32,13 +32,12 @@
 </div>
 
 <%# introduce section %>
-<section class="section">
   <div class="container">
-    <div class="row">
+    <div class="row p-5">
       <div class="col-md-8 mx-auto text-center">
-        <h6 class="text-primary">Market Place</h6>
+        <h3 class="text-warning fw-bold">Market Place</h3>
         <h1>Our roles</h1>
-        <p>Are you asking for a raise? Do your research and know your market value.
+        <p class="fst-italic">Are you asking for a raise? Do your research and know your market value.
         Having an informed sense of your worth, as dictated by the broader marketplace,
         will give you greater confidence in requesting increased compensation.
         It's tough to dispute someone who can back up her assertions with facts and a smart,
@@ -61,7 +60,6 @@
       </div>
     </div>
   </div>
-</section>
 
 
 <button
@@ -71,3 +69,34 @@
         >
   <i class="fas fa-arrow-up"></i>
 </button>
+
+<section class="text-center">
+  <div class="row">
+    <div class="col-lg-3 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative">
+      <i class="fas fa-cubes fa-3x text-warning mb-4"></i>
+      <h5 class="text-warning fw-bold mb-3">5000+</h5>
+      <h6 class="fw-normal mb-0">Jobs</h6>
+      <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative">
+      <i class="fas fa-layer-group fa-3x text-warning mb-4"></i>
+      <h5 class="text-warning fw-bold mb-3">3000+</h5>
+      <h6 class="fw-normal mb-0">Sellers</h6>
+      <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-5 mb-md-0 position-relative">
+      <i class="fas fa-image fa-3x text-warning mb-4"></i>
+      <h5 class="text-warning fw-bold mb-3">100+</h5>
+      <h6 class="fw-normal mb-0">Cities</h6>
+      <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-5 mb-md-0 position-relative">
+      <i class="fas fa-plug fa-3x text-warning mb-4"></i>
+      <h5 class="text-warning fw-bold mb-3">28</h5>
+      <h6 class="fw-normal mb-0">Country</h6>
+    </div>
+  </div>
+</section>

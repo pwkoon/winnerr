@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <div class="row vh-100 flex justify-content-between">
-    <section class="col-4">
-      <div class="vh-100 mx-auto p-5 overflow-hidden text-white" style="background-color: #7B9E89;">
+    <div class="col-md-4 d-sm-none d-md-block">
+      <div class="vh-100 mx-auto p-5 text-white" style="background-color: #7B9E89;">
         <a href="/" class="text-decoration-none text-bold text-white fs-4">WINNERR</a>
         <p class="fw-bold fs-5">Master the topic, the message, and the delivery!</p>
       </div>
-    </section>
-    <section class="col-8 h-100">
+    </div>
+    <div class="col-md-8 h-100">
       <div class="flex mx-auto">
       <br>
       <p class="text-end display-8">Not a member?<%= render "devise/shared/links" %></p>
@@ -28,6 +28,6 @@
           </div>
         <% end %>
       </div>
-    </section>
+    </div>
   </div>
 </div>
