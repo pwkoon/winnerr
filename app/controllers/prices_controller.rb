@@ -16,16 +16,9 @@ class PricesController < ApplicationController
   #   end
   # end
 
-<<<<<<< HEAD
-  def edit
-    @price = Price.find(params[:price_id])
-    render :edit 
-  end
-=======
   # def edit
 
   # end
->>>>>>> master
 
   # def update
   #   @price.update(params_price)
