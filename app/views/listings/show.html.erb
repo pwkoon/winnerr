@@ -1,4 +1,3 @@
-<% if false %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Overview</a>
@@ -96,24 +95,7 @@
         </div>
 
     </div>
-    <!--below is package summary being bought -->
-    <div class="outer-container col-md-6">
-      <div class="inner-container">
-        <% @listing.prices.each do |price| %>
-        <div class="card text-center-summary">
-          <div class="card-header"><%= price.tier %> package</div>
-            <div class="card-body">
-              <h5 class="card-title"><%= price.description %></h5>
-              <p class="card-text">$<%= price.amount %></p>
-              <%= simple_form_for [@listing, @project] do |f| %>
-                <%= f.button :submit, "Buy now", class: "btn btn-warning text-white" %>
-              <% end %>
-            </div>
-          <div class="card-footer">Contact Seller <i class="fa-sharp fa-solid fa-message"></i></div>
 
-        <% end %>
-      </div>
-    </div>
   </div>
   <%= render "reviews/show" %>
 </div>
