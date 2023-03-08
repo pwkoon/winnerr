@@ -7,17 +7,22 @@ class ListingsController < ApplicationController
   end
 
   def show
-
+    @project = Project.new
+    @review = Review.new(listing: @listing)
   end
 
   def new
     @listing = Listing.new
+    @price = Price.new
     @listing.categories.build
   end
 
   def create
     @listing = Listing.new(params_listing)
+    @price = Price.new(params_price)
+    @listing.prices << @price
     @listing.user = @user
+
     if @listing.save
         redirect_to  listing_path(@listing)
     else
@@ -26,14 +31,16 @@ class ListingsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
-    if @listing.update(params_listing)
+    @price = @listing.prices.first
+    if @listing.update(params_listing) && @price.update(params_price)
       redirect_to listing_path(@listing)
-  else
+    else
       render :edit, status: :unprocessable_entity
-  end
+    end
   end
 
   def destroy
@@ -48,7 +55,11 @@ class ListingsController < ApplicationController
   end
 
   def params_listing
-    params.require(:listing).permit(:title, :description, :photo, categories: [] )
+    params.require(:listing).permit(:title, :description, :photo, category_ids: [])
+  end
+
+  def params_price
+    params.permit(:tier, :amount, :description)
   end
 
   def set_listing
