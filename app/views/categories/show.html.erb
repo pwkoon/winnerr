@@ -1,40 +1,41 @@
 <div class="container">
-  <div class="row gy-2">
-    <div clas="col-lg-8">
-      <h1 class="mx-auto text-center"><%= @category.name %></h1>
-      <h2 class="mx-auto text-center"><%= @category.description %></h2>
-    </div>
-      <hr>
+  <div class="row">
+    <h1 class="text-center"><%= @category.name %></h1>
+    <p class="text-center mx:auto subhead"><%= @category.description %></p>
+  </div>
+  <hr>
+</div>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4 mx-auto">
-      <% @category.listings.each do |listing| %>
-      <div class="col">
-        <a href= <%= "/listings/#{listing.id}" %>>
-          <div class="card-group">
-            <div class="card">
+<div class="container">
+  <div class="row">
+    <% @category.listings.each do |listing| %>
+      <div class="col-4 my-2 align">
+        <div class="card-deck">
+          <a href=<%= "/listings/#{listing.id}" %>>
+            <div class="card card-effect">
               <% if listing.photo.key.nil? %>
-              <img class="card-img-top" src="https://images.pexels.com/photos/209620/pexels-photo-209620.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" height="300" width="346" >
+                <img class="card-img-top" src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" height="300" width="450">
               <% else %>
-              <%= cl_image_tag listing.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+                <%= cl_image_tag listing.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
               <% end %>
               <div class="card-body">
-              <h5 class="card-title"><%= listing.title %></h5>
-              <p class="card-text"><%= listing.description %></p>
+                <h5 class="card-title"><%= listing.title %></h5>
+                <p class="card-text"><%= listing.description %></p>
+                <div class="card-footer d-flex justify-content-between">
+                  <% listing.prices.each do |price| %>
+                    <small>From $<%= price.amount %></small>
+                  <% end %>
+                  <small>Last updated 3 mins ago</small>
+                </div>
+              </div>
             </div>
-            <div class="card-footer d-flex justify-content-between">
-              <% listing.prices.each do |price| %>
-              <small>From $<%= price.amount %></small>
-              <% end %>
-              <small class="text-muted"><%= link_to "Edit", edit_listing_path(listing)%></small>
-            </div>
-          </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
+
 
 <hr>
 
