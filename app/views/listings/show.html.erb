@@ -20,10 +20,10 @@
           <a class="nav-link disabled" href="#">About the seller</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Order details</a>
+          <a class="nav-link" href="#detail">Order details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href= <%= "/listing/#{@listing.id}/reviews/#{@review.id}" %>>Review</a>
+          <a class="nav-link" href="#review" %>Review</a>
         </li>
       </ul>
     </div>
@@ -54,7 +54,6 @@
         </div>
       </div><hr>
     </div>
-
     <!--below is package summary being bought -->
     <div class="outer-container col-md-6">
       <div class="inner-container">
@@ -69,6 +68,7 @@
               <% end %>
             </div>
           <div class="card-footer">Contact Seller <i class="fa-sharp fa-solid fa-message"></i></div>
+
         <% end %>
       </div>
     </div>
