@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Wiping all previous instances of categories and listings
+
 puts " Cleaning database..."
 Category.destroy_all
 Listing.destroy_all
@@ -290,6 +291,19 @@ writing = Category.create!(
   puts "Done - '#{writing.name}' category, associated with #{writing.listings.count} listings, successfully created!"
 
 
+# TODO: Seed images to listing
+require "open-uri"
+listings = Listing.all
+i = 0
+# loop do
+#   file = URI.open("https://res.cloudinary.com/dbaunlw7m/image/upload/v1677915476/stock_photo_ozgvfl.jpg")
+#   listings[i].photo.attach(io: file, filename: "stock_photo_ozgvfl.jpg", content_type:"image/jpeg")
+#   listings[i].save
+#   if i == (listings.last.id - 1)
+#     break
+#   end
+# end
+
 # TODO: Seed prices
 30.times do |list|
   Price.create!(
@@ -301,5 +315,12 @@ writing = Category.create!(
   puts "Created #{list + 1} prices in the `prices` table!"
 end
 
+# loop do
+#   listings[i].photo.attach(io: File.open('app/assets/images/seed_images/stock_yoga.jpg'), filename: 'stock_yoga.jpg', content_type: "image/jpeg")
+#   listings[i].save
+#   if i == (listings.last.id - 1)
+#     break
+#   end
+# end
 
 puts "Finished!"

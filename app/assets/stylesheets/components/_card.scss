@@ -23,6 +23,15 @@
   grid-gap: 16px;
 }
 
+.card {
+  border-radius: 8px;
+}
+
+img {
+  border-radius: 8px;
+  max-width: 100%;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
@@ -56,4 +65,26 @@
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+
+.outer-container.col-md-6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.inner-container {
+  width: 530px;
+  height: 280px;
+  position: relative;
+  top: 100px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card-body {
+  display: grid;
+  justify-content: center;
 }
