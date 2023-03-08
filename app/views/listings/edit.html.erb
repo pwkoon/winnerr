@@ -13,16 +13,15 @@
       <h4>Listing | Pricing</h4>
       <div class="mb-3">
         <label for="tier" class="form-label">Tier</label>
-        <input type="text" class="form-control" name="tier" id="tier" placeholder="Basic">
+        <input type="text" class="form-control" name="tier" id="tier" placeholder="Basic" value="<%= @listing.prices.first.tier %>">
       </div>
       <div class="mb-3">
         <label for="amount" class="form-label">Amount</label>
-        <input type="float" class="form-control" name="amount" id="amount" placeholder="Your listing price...">
+        <input type="float" class="form-control" name="amount" id="amount" placeholder="Your listing price..." value="<%= @listing.prices.first.amount %>">
       </div>
         <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <input type="text" class="form-control" name="description" id="description" placeholder="Description...">
-
+        <input type="text" class="form-control" name="description" id="description" placeholder="Description..." value="<%= @listing.prices.first.description %>">
       </div>
         <%= f.submit class: 'btn btn-flat btn-warning text-dark fw-bold' %>
       <% end %>
