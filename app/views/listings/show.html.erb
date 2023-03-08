@@ -22,10 +22,10 @@
           <a class="nav-link disabled" href="#">About the seller</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Order details</a>
+          <a class="nav-link" href="#detail">Order details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href= <%= "/listing/#{@listing.id}/reviews/#{@review.id}" %>>Review</a>
+          <a class="nav-link" href="#review" %>Review</a>
         </li>
       </ul>
     </div>
@@ -51,11 +51,16 @@
     <div class="col-lg-6 col-md-12 mx-auto p-3">
       <p class="fw-bold"><%= link_to "Home", root_path, class:"text-dark" %> <i class="fa-solid fa-chevron-right opacity-75"></i> <%= link_to @listing.title, listing_path(@listing) ,class:"text-dark"%></p>
       <h2 class="fw-bold text-warning">Order's visual</h2>
-      <%= cl_image_tag @listing.photo.key, height: 300, width: 530, crop: :fill %>
+      <% if @listing.photo.key.nil? %>
+        <img src="https://images.pexels.com/photos/209620/pexels-photo-209620.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" height="300" width="530" >
+      <% else %>
+        <%= cl_image_tag @listing.photo.key, height: 300, width: 530, crop: :fill %>
+      <% end %>
       <hr>
-      <h2 class="fw-bold text-warning">Order's details</h2>
+      <h2 class="fw-bold text-warning" id="detail">Order's details</h2>
       <p><strong>About This Gig: <%= @listing.description %></strong>
       <br>I deliver professionnal wav audio files for corporate message video narration training IVR Phonere-learning audio guides commercials TV & radio</p>
+
       <hr>
       <h4 class="text-dark">Also recommendations</h4>
       <div class="card">
@@ -71,9 +76,10 @@
       <hr>
     </div>
 
+
     <div class="col-lg-6 col-md-12 mx-auto p-3">
       <% @listing.prices.each do |price| %>
-      <div class="card text-center w-80 position-fixed">
+        <div class="card text-center w-80 position-fixed">
         <div class="card-header"><%= price.tier %> package</div>
           <div class="card-body">
             <h5 class="card-title"><%= price.description %></h5>
@@ -84,10 +90,36 @@
           </div>
         <div class="card-footer">Contact Seller <i class="fa-sharp fa-solid fa-message"></i> </div>
       <% end %>
+        </div>
+    </div>
+  </div>
+
+  <div class="row" id="review">
+    <div class="col-md-12 mx-auto">
+      <h3>Reviews</h3>
+      <% if @listing.reviews.empty? %>
+        <small><em class="text-muted">Be the first one to review this list</em></small>
+      <% end %>
+      <% @listing.reviews.each do |review| %>
+        <div>
+          <% review.rating.times do %>
+            <i class="fa-solid fa-star text-warning"></i>
+          <% end %>
+          <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+          <p class="mb-0"><%= review.comment %></p>
+        <hr class="hr w-50" />
+        </div>
+      <% end %>
+      <div class="bg-white rounded p-3 w-50">
+        <h5>Add your review</h5>
+        <%= simple_form_for [@listing, @review] do |f| %>
+          <%= f.input :comment, placeholder: "Add your review here..." %>
+          <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating", input_html: { data: { controller: "star-rating" } } %>
+          <%= f.submit class:"btn btn-flat" %>
+        <% end %>
       </div>
     </div>
   </div>
 
-  <%= render "reviews/show" %>
 </div>
 </div>
