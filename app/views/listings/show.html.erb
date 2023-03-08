@@ -8,8 +8,7 @@
       data-mdb-target="#navbarNav"
       aria-controls="navbarNav"
       aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+      aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -30,20 +29,20 @@
     </div>
   </div>
 </nav>
-<div style="background-color: #F1D6B8">
 
-<div class="container">
+<div class="container" style="background-color: #F1D6B8">
   <div class="row">
-    <div class="col-lg-6 col-md-12 mx-auto p-3">
+    <div class="col-md-6">
       <p class="fw-bold"><%= link_to "Home", root_path, class:"text-dark" %> <i class="fa-solid fa-chevron-right opacity-75"></i> <%= link_to @listing.title, listing_path(@listing) ,class:"text-dark"%></p>
-      <h2 class="fw-bold text-warning">Order's visual</h2>
-      <%= cl_image_tag @listing.photo.key, height: 300, width: 530, crop: :fill %>
-      <hr>
-      <h2 class="fw-bold text-warning">Order's details</h2>
-      <p><strong>About This Gig: <%= @listing.description %></strong>
-      <br>I deliver professionnal wav audio files for corporate message video narration training IVR Phonere-learning audio guides commercials TV & radio</p>
-      <hr>
-      <h4 class="text-dark">Also recommendations</h4>
+        <h2 class="fw-bold text-warning">Order's visual</h2>
+      <div class="order-image">
+        <%= cl_image_tag @listing.photo.key, height: 300, width: 516, crop: :limit %>
+      </div><hr>
+        <h2 class="fw-bold text-warning">Order's details</h2>
+        <p><strong>About This Gig: <%= @listing.description %></strong>
+        <br>I deliver professionnal wav audio files for corporate message video narration training IVR Phonere-learning audio guides commercials TV & radio</p>
+        <hr>
+        <h4 class="text-dark">Also recommendations</h4>
       <div class="card">
         <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers"/>
         <div class="card-body">
@@ -53,27 +52,26 @@
             additional content. This content is a little bit longer.
           </p>
         </div>
-      </div>
-      <hr>
+      </div><hr>
     </div>
 
-    <div class="col-lg-6 col-md-12 mx-auto p-3">
-      <% @listing.prices.each do |price| %>
-      <div class="card text-center w-80 position-fixed">
-        <div class="card-header"><%= price.tier %> package</div>
-          <div class="card-body">
-            <h5 class="card-title"><%= price.description %></h5>
-            <p class="card-text">$<%= price.amount %></p>
-            <%= simple_form_for [@listing, @project] do |f| %>
-              <%= f.button :submit, "Buy now", class: "btn btn-warning text-white" %>
-            <% end %>
-          </div>
-        <div class="card-footer">Contact Seller <i class="fa-sharp fa-solid fa-message"></i> </div>
-      <% end %>
+    <!--below is package summary being bought -->
+    <div class="outer-container col-md-6">
+      <div class="inner-container">
+        <% @listing.prices.each do |price| %>
+        <div class="card text-center-summary">
+          <div class="card-header"><%= price.tier %> package</div>
+            <div class="card-body">
+              <h5 class="card-title"><%= price.description %></h5>
+              <p class="card-text">$<%= price.amount %></p>
+              <%= simple_form_for [@listing, @project] do |f| %>
+                <%= f.button :submit, "Buy now", class: "btn btn-warning text-white" %>
+              <% end %>
+            </div>
+          <div class="card-footer">Contact Seller <i class="fa-sharp fa-solid fa-message"></i></div>
+        <% end %>
       </div>
     </div>
   </div>
-
   <%= render "reviews/show" %>
-</div>
 </div>
