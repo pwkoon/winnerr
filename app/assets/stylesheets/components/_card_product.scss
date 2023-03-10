@@ -41,6 +41,11 @@
 
 .card-footer {
   background-color: white;
+  padding: 0px;
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: smaller;
 }
 
 a {

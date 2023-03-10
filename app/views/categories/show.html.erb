@@ -21,7 +21,7 @@
               <div class="card-body">
                 <h5 class="card-title"><%= listing.title %></h5>
                 <p class="card-text"><%= listing.description %></p>
-                <div class="card-footer d-flex justify-content-between">
+                <div class="card-footer">
                   <% listing.prices.each do |price| %>
                     <small>From $<%= price.amount %></small>
                   <% end %>

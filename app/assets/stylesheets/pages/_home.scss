@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 
 body {
-  background-color: #f7ddc4;
+  background-color: #fff;
 }
 
 
@@ -119,4 +119,101 @@ img {vertical-align: middle;}
 @keyframes fade {
   from {opacity: .6}
   to {opacity: 1}
+}
+
+// Trusted by section
+
+.trusted-by-wrapper {
+  // margin-bottom: 96px;
+  background-color: #fafafa;
+}
+
+.trusted-by {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.trusted-by .trusted-by-text {
+  font-family: $body-font;
+  padding-right: 20px;
+  color: #b5b6ba;
+  font-weight: 600;
+}
+
+.trusted-by ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.trusted-by li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 60px;
+}
+
+// Selling proposition section
+
+.selling-proposition-wrapper {
+  background-color: #f1fdf7;
+}
+
+.selling-proposition {
+  padding-top: 96px;
+  margin-bottom: 96px;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+h6 {
+  padding-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  font-weight: bold;
+  font-size: large;
+}
+
+.fa-circle-check {
+  margin-right: 10px;
+  min-width: 24px;
+}
+
+.selling-text {
+  padding-right: 11%;
+}
+
+.selling-text > ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.selling-text p {
+  font-size: 18px;
+  line-height: 26px;
+  font-family: $body-font;
+}
+
+.selling-text li {
+  padding-bottom: 24px;
+}
+
+.selling-text h3 {
+  padding-bottom: 24px;
+}
+
+// Explore marketplace
+.category-card {
+  color: $black;
+  font-family: $body-font;
+}
+
+.marketplace h3 {
+  margin-bottom: 20px;
 }

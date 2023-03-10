@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-12>
+    <div class="col-lg-12">
       <h3>Reviews</h3>
       <% if @listing.reviews.empty? %>
         <small><em class="text-muted">Be the first one to review this list</em></small><br>
@@ -16,7 +16,7 @@
       <% end %>
     </div>
 
-    <div class="col-lg-12>
+    <div class="col-lg-12">
       <div class="bg-white rounded p-3 w-50">
         <h5><b>Add your review<b></h5>
         <%= simple_form_for [@listing, @review] do |f| %>
