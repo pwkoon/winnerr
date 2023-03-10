@@ -34,9 +34,14 @@ button span {
   margin-bottom: 20px;
 }
 
-.btn.btn-flat:hover {
-  background-color:rgb(101, 136, 239);
+.review-btn {
+  border-radius: 8px;
+  margin-top: 20px;
 }
+
+// .btn.btn-flat:hover {
+//   background-color:rgb(101, 136, 239);
+// }
 
 .btn-outline-light {
   font-weight: bold;
@@ -62,4 +67,12 @@ button span {
   display: flex;
   margin-right: 12px;
   white-space: nowrap;
+}
+
+.btn-subscribe {
+  border-radius: 8px;
+}
+
+.btn-buy-now {
+  border-radius: 8px;
 }

@@ -7,11 +7,12 @@ body {
 
 footer {
   background-color: #B4846C;
+  font-family: $body-font;
 }
 
-footer:hover {
-  background-color: #7D5A50;
-}
+// footer:hover {
+//   background-color: #7D5A50;
+// }
 
 .btn-block:hover {
   background-color: #f7ddc4 ;

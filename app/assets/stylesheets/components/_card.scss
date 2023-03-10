@@ -92,4 +92,10 @@ img {
 .card-body {
   display: grid;
   justify-content: center;
+  font-family: $body-font;
+}
+
+.card-body b  {
+  font-family: $body-font;
+  font-size: large;
 }
