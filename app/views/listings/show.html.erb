@@ -76,24 +76,23 @@
       <hr>
     </div>
 
-
-    <div class="col-lg-4 col-md-12 mx-auto p-3">
+    <div class="col-lg-4 col-sm-12 mx-auto p-3">
       <% @listing.prices.each do |price| %>
-        <div class="card text-center">
-        <div class="card-header"><%= price.tier %> package</div>
-          <div class="card-body">
-            <h5 class="card-title"><%= price.description %></h5>
-            <p class="card-text">$<%= price.amount %></p>
-            <%= simple_form_for [@listing, @project] do |f| %>
-              <%= f.button :submit, "Buy now", class: "btn btn-warning text-white" %>
-            <% end %>
+        <div class="card text-center position-fixed">
+          <div class="card-header"><%= price.tier %> package
+            <div class="card-body">
+              <h5 class="card-title"><%= price.description %></h5>
+              <p class="card-text">$<%= price.amount %></p>
+              <%= simple_form_for [@listing, @project] do |f| %>
+                <%= f.button :submit, "Buy now", class: "btn btn-warning text-white" %>
+              <% end %>
+            </div>
+            <div class="card-footer">
+              <a href="#"> Contact Seller <i class="fa-sharp fa-solid fa-message"></i> </a>
+            </div>
           </div>
-        <div class="card-footer">
-          <a href="#"> Contact Seller <i class="fa-sharp fa-solid fa-message"></i> </a>
         </div>
       <% end %>
-        </div>
-
     </div>
 
   </div>
