@@ -41,6 +41,12 @@
 
 .card-footer {
   background-color: white;
+  padding: 0px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  font-size: medium;
 }
 
 a {
@@ -49,4 +55,9 @@ a {
 
 a:link {
   text-decoration: none;
+}
+
+#price-summary {
+  position: sticky;
+  top: 0;
 }

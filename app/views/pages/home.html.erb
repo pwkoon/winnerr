@@ -1,146 +1,267 @@
-
-<div class="banner">
-  <div class="bg-image vh-100 mx-0 d-flex align-items-center opacity-35"
-       style="background-color: #EFD3E4;
-              background-image: url(https://images.pexels.com/photos/1252807/pexels-photo-1252807.jpeg);
-              background-position: 250px 0;
-              background-size: cover;
-              /* background-attachment: fixed; */
-        ">
-    <div class="container">
-      <p class="col-lg-12 fs-4 text-white text-start">
-        Find the perfect <span class="text-success fw-bolder">freelance</span> services for your business</p>
-        <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-          <div class="form-search col-lg-6 search-form-control form-group align-items-left">
-            <input class="form-control string required" type="text" name="search[query]" placeholder="Try searching for &quot;designing web page&quot;" id="search_query" />
-            <button name="button" type="submit" class="btn btn-success">
-
-              <i class="fas fa-search"></i> Search
-            </button>
-          </div>
-        <% end %>
-
-      <div class="container d-flex justify-content-between">
-        <h6 class="d-inline-block"; style="color: white">
-          <b>Popular:</b></h6>
-        <% @categories.first(5).each do |category| %>
-        <a type="button" class="btn btn-info btn-sm rounded-pill" href= <%= "/categories/#{category.id}" %> ><b><%= category.name %></b></a>
-        <% end %>
+<%# Hero section incl. h1 copy, search bar + popular %>
+<div class="banners" style="background-image: url(https://images.pexels.com/photos/1252807/pexels-photo-1252807.jpeg);">
+  <div class="max-width-container">
+    <div class="header">
+      <h1>Find the perfect <i>freelance</i> services for your business</h1>
+      <div class="input-group input-group-lg shadow">
+        <input type="search" class="form-control rounded" placeholder="Try searching &quot;webpage design&quot;" id="header-search">
+        <button id="search-button" type="button" class="btn btn-primary">
+          <span>Search</span>
+        </button>
+      </div>
+      <div class="popular">
+        <h6><b>Popular:</b></h6>
+        <ul>
+          <% @categories.first(5).each do |category| %>
+            <li><a class="btn btn-outline-light btn-sm rounded-pill" href=<%= "/categories/#{category.id}" %>><%= category.name %></a></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
 </div>
 
-
-<div class="container-logos">
-  <div class="row">
-
-    <div class="trusted-font col-sm-4">
-      <h5 class="text-center">Trusted by:</h5>
-    </div>
-
-    <div class="col-sm-2">
-      <%= image_tag(asset_path('google.png'), class:"trusted-logo") %>
-    </div>
-
-    <div class="col-sm-2">
-      <%= image_tag(asset_path('netflix.png'), class:"trusted-logo") %>
-    </div>
-
-    <div class="col-sm-2">
-      <%= image_tag(asset_path('https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg.8b7310b.png'), class:"trusted-logo") %>
-    </div>
-
-    <div class="col-sm-2">
-      <%= image_tag(asset_path('paypal.png'), class:"trusted-logo") %>
-    </div>
+<%# Trusted brands section %>
+<div class="trusted-by-wrapper">
+  <div class="trusted-by max-width-container">
+    <span class="trusted-by-text">Trusted by:</span>
+    <ul>
+      <li><%= image_tag(asset_path('google.png'), class:"trusted-logo") %></li>
+      <li><%= image_tag(asset_path('netflix.png'), class:"trusted-logo") %></li>
+      <li><%= image_tag(asset_path('https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg.8b7310b.png'), class:"trusted-logo") %></li>
+      <li><%= image_tag(asset_path('paypal.png'), class:"trusted-logo") %></li>
+    </ul>
   </div>
-</div><br><br>
+</div>
 
-<%# introduce section %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <h3>A whole world of freelance talent at your fingertips</h3><br><br>
-
-        <ul style="list-style: none;">
-          <li class="lists">
-          <b>&#9989; The best for every budget</b><br>
-          Find high-quality services at every price point.
-          No hourly rates, just project-based pricing.
-          </li><br>
-
-          <li class="lists">
-          <b>&#9989; Quality work done quickly</b><br>
-          Find the right freelancer to begin working on your project
-          within minutes.
-          </li><br>
-
-          <li class="lists">
-          <b>&#9989; Protected payments, every time</b><br>
-          Always know what you'll pay upfront. Your payment isn't released
-          until you approve the work.</li><br>
-
-          <li class="lists">
-          <b>&#9989; 24/7 support</b><br>
-          Questions? Our round-the-clock support team is available to
-          help anytime, anywhere.</li><br><br>
+<%# Selling proposition section %>
+<div class="selling-proposition-wrapper">
+  <div class="selling-proposition max-width-container">
+    <div class="d-flex">
+      <div class="col-lg-6 selling-text">
+        <h3>A whole world of freelance talent at your fingertips</h3>
+        <ul>
+          <li>
+            <h6>
+              <i class="fa-sharp fa-regular fa-circle-check"></i>
+              The best for every budget
+            </h6>
+            <p>Find high-quality services at every price point. No hourly rates, just project-based pricing.</p>
+          </li>
+          <li>
+            <h6>
+              <i class="fa-sharp fa-regular fa-circle-check"></i>
+              Quality work done quickly
+            </h6>
+            <p>Find the right freelancer to begin working on your project within minutes.</p>
+          </li>
+          <li>
+            <h6>
+              <i class="fa-sharp fa-regular fa-circle-check"></i>
+              Protected payments, every time
+            </h6>
+            <p>Always know what you'll pay upfront. Your payment isn't released until you approve the work.</p>
+          </li>
+          <li>
+            <h6>
+              <i class="fa-sharp fa-regular fa-circle-check"></i>
+              24/7 support
+            </h6>
+            <p>Questions? Our round-the-clock support team is available to help anytime, anywhere.</p>
+          </li>
         </ul>
-    </div>
-
-    <div class="col-md-6">
-      <h3>&#128172; What our customers say</h3><br><br><br>
-
-      <div class="slideshow-container">
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
-          <div class="numbertext">1 / 4</div>
-          <%= image_tag(asset_path('img1.jpg'), style:"width:100%") %>
-        </div>
-
-        <div class="mySlides fade">
-          <div class="numbertext">2 / 4</div>
-          <%= image_tag(asset_path('img2.jpg'), style:"width:100%") %>
-        </div>
-
-        <div class="mySlides fade">
-          <div class="numbertext">3 / 4</div>
-          <%= image_tag(asset_path('img3.jpg'), style:"width:100%") %>
-        </div>
+      </div>
+      <div class="col-lg-6">
+        <h3>What our customers say</h3>
+        <div class="slideshow-container">
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 4</div>
+            <%= image_tag(asset_path('img1.jpg'), style:"width:100%") %>
+          </div>
 
           <div class="mySlides fade">
-          <div class="numbertext">4 / 4</div>
-          <%= image_tag(asset_path('img4.jpg'), style:"width:100%") %>
+            <div class="numbertext">2 / 4</div>
+            <%= image_tag(asset_path('img2.jpg'), style:"width:100%") %>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 4</div>
+            <%= image_tag(asset_path('img3.jpg'), style:"width:100%") %>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <%= image_tag(asset_path('img4.jpg'), style:"width:100%") %>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<%# Marketplace section %>
+<div class="marketplace max-width-container">
+  <h3>Explore the marketplace</h3>
+  <div class="row g-3">
+    <% @categories.each do |category| %>
+      <div class="col-lg-4">
+        <div class="category-card-effect">
+          <a href= <%= category_path(category) %> class="category-card text-decoration-none">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/436413/pexels-photo-436413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)">
+              <%= category.name %>
+            </div>
+            <p><%= category.description %></p>
+          </a>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
 <script>
-let slideIndex = 0;
-showSlides();
+  let slideIndex = 0;
+  showSlides();
 
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+  function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 5000);
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 5000);
-}
 </script>
 
-<h3><b>Explore the Marketplace<b></h3><br>
+<% if false %>
+  <div class="banner">
+    <div class="bg-image vh-100 mx-0 d-flex align-items-center opacity-35"
+        style="background-color: #EFD3E4;
+                background-image: url(https://images.pexels.com/photos/1252807/pexels-photo-1252807.jpeg);
+                background-position: 250px 0;
+                background-size: cover;
+                /* background-attachment: fixed; */
+          ">
+      <div class="container">
+        <p class="col-lg-12 fs-4 text-white text-start">
+          Find the perfect <span class="text-success fw-bolder">freelance</span> services for your business</p>
+          <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+            <div class="form-search col-lg-6 search-form-control form-group align-items-left">
+              <input class="form-control string required" type="text" name="search[query]" placeholder="Try searching for &quot;designing web page&quot;" id="search_query" />
+              <button name="button" type="submit" class="btn btn-success">
 
-<div class="container">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </div>
+          <% end %>
+
+        <div class="container d-flex justify-content-between">
+          <h6 class="d-inline-block"; style="color: white">
+            <b>Popular:</b></h6>
+          <% @categories.first(5).each do |category| %>
+          <a type="button" class="btn btn-info btn-sm rounded-pill" href= <%= "/categories/#{category.id}" %> ><b><%= category.name %></b></a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-logos">
+    <div class="row">
+
+      <div class="trusted-font col-sm-4">
+        <h5 class="text-center">Trusted by:</h5>
+      </div>
+
+      <div class="col-sm-2">
+        <%= image_tag(asset_path('google.png'), class:"trusted-logo") %>
+      </div>
+
+      <div class="col-sm-2">
+        <%= image_tag(asset_path('netflix.png'), class:"trusted-logo") %>
+      </div>
+
+      <div class="col-sm-2">
+        <%= image_tag(asset_path('https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg.8b7310b.png'), class:"trusted-logo") %>
+      </div>
+
+      <div class="col-sm-2">
+        <%= image_tag(asset_path('paypal.png'), class:"trusted-logo") %>
+      </div>
+    </div>
+  </div><br><br>
+
+
+
+  <%# introduce section %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>A whole world of freelance talent at your fingertips</h3><br><br>
+
+          <ul style="list-style: none;">
+            <li class="lists">
+            <b>&#9989; The best for every budget</b><br>
+            Find high-quality services at every price point.
+            No hourly rates, just project-based pricing.
+            </li><br>
+
+            <li class="lists">
+            <b>&#9989; Quality work done quickly</b><br>
+            Find the right freelancer to begin working on your project
+            within minutes.
+            </li><br>
+
+            <li class="lists">
+            <b>&#9989; Protected payments, every time</b><br>
+            Always know what you'll pay upfront. Your payment isn't released
+            until you approve the work.</li><br>
+
+            <li class="lists">
+            <b>&#9989; 24/7 support</b><br>
+            Questions? Our round-the-clock support team is available to
+            help anytime, anywhere.</li><br><br>
+          </ul>
+      </div>
+
+      <div class="col-md-6">
+        <h3>&#128172; What our customers say</h3><br><br><br>
+
+        <div class="slideshow-container">
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 4</div>
+            <%= image_tag(asset_path('img1.jpg'), style:"width:100%") %>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 4</div>
+            <%= image_tag(asset_path('img2.jpg'), style:"width:100%") %>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 4</div>
+            <%= image_tag(asset_path('img3.jpg'), style:"width:100%") %>
+          </div>
+
+            <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <%= image_tag(asset_path('img4.jpg'), style:"width:100%") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3><b>Explore the Marketplace<b></h3><br>
+
+  <div class="container">
   <div class="row g-3">
     <% @categories.each do |category| %>
       <div class="col-lg-4">
-        <div class="category card-effect">
+        <div class="category-card-effect">
           <div class="iconbox">
             <i class="fa-solid fa-layer-group"></i>
           </div>
@@ -153,3 +274,4 @@ function showSlides() {
     <% end %>
   </div>
  </div>
+<% end %>
