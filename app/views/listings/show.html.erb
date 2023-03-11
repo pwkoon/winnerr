@@ -78,7 +78,7 @@
 
     <div class="col-lg-4 col-md-12 mx-auto p-3">
       <% @listing.prices.each do |price| %>
-        <div class="card text-center position-fixed">
+        <div class="card price-card text-center">
           <div class="card-header"><%= price.tier %> package
             <div class="card-body">
               <h5 class="card-title"><%= price.description %></h5>
