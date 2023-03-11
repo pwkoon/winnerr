@@ -10,6 +10,11 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+.category-card-effect p {
+  margin-bottom: 30px;
 }
 
 .card-large {
@@ -87,4 +92,10 @@ img {
 .card-body {
   display: grid;
   justify-content: center;
+  font-family: $body-font;
+}
+
+.card-body b  {
+  font-family: $body-font;
+  font-size: large;
 }
